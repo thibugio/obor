@@ -1,0 +1,5 @@
+linux: 
+mex -v -Iinccpp mexcpp/mexPacketBytesFromPlayfile.cpp libcpp/common_utils.cpp libcpp/string_utils.cpp libcpp/pc_utils.cpp libcpp/mex_utils.cpp -outdir /home/acceber/common/workspaces/matlab/mex 
+
+windows:
+mex -v -Iinccpp mexcpp/mexPacketBytesFromPlayfile.cpp libcpp/common_utils.cpp libcpp/string_utils.cpp libcpp/pc_utils.cpp libcpp/mex_utils.cpp -outdir C:/Users/acceber/Documents/MATLAB/mex

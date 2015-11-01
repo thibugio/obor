@@ -1,0 +1,36 @@
+# makefile for cpp socket implementation
+CC=g++
+CFLAGS=-g -Wall -std=c++11 
+
+CPPBASE=cpp/
+
+#holds *.h files
+IDIR=$(CPPBASE)com/inc/ $(CPPBASE)soc/inc/
+INC=$(foreach d,$(IDIR),-I$(d))
+
+# holds *.cpp files for *.h files
+LIBDIR_COM=$(CPPBASE)com/lib/
+LSRC_COM=common_utils.cpp string_utils.cpp pc_utils.cpp test_utils.cpp
+LIBSRC_COM=$(foreach src,$(LSRC_COM),$(LIBDIR_COM)$(src))
+
+LIBDIR_SOCK=$(CPPBASE)soc/lib/
+LSRC_SOCK=
+LIBSRC_SOCK=$(foreach src,$(LSRC_SER),$(LIBDIR_SER)$(src))
+
+LIBSRC=$(LIBSRC_COM) $(LIBSRC_SOCK)
+
+LIBS=boost_system boost_thread m
+EXTLIBS=$(foreach lib,$(LIBS),-l$(lib))
+
+SRCDIR=$(CPPBASE)soc/src/
+SRC=test_server.cpp
+
+OUTDIR=$(CPPBASE)soc/bin/
+TARGET=testServerMain
+
+all:
+	$(CC) $(CFLAGS) $(INC) -o $(OUTDIR)$(TARGET) $(SRCDIR)$(SRC) $(LIBSRC) $(EXTLIBS)
+
+.PHONY: clean
+clean:
+	rm -f $(TARGET) *.o *~

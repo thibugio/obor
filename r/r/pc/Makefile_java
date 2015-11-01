@@ -1,0 +1,24 @@
+JCC=javac
+JFLAGS=-g
+
+JAVABASE=java/
+
+SRCDIR=$(JAVABASE)src/
+
+SRC1=utils/utils.java utils/catheterPacket.java
+JSRC1=$(foreach src,$(SRC1),$(SRCDIR)$(src))
+
+SRC2=java_sock/sendThread.java 
+SRC2+=java_sock/socketSender.java 
+JSRC2=$(foreach src,$(SRC2),$(SRCDIR)$(src))
+
+SRC3=gui/cjg.java
+JSRC3=$(foreach src,$(SRC3),$(SRCDIR)$(src))
+
+CP=$(JAVABASE)class/
+
+all:
+	$(JCC) $(JFLAGS) -cp $(CP) -d $(CP) $(JSRC1)
+	$(JCC) $(JFLAGS) -cp $(CP) -d $(CP) $(JSRC2)
+	$(JCC) $(JFLAGS) -cp $(CP) -d $(CP) $(JSRC3)
+

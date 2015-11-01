@@ -1,0 +1,42 @@
+# makefile for cpp serial implementation
+CC=g++
+CFLAGS=-g -Wall -std=c++11 
+
+CPPBASE=cpp/
+
+EXTLIBS_=boost_system boost_thread 
+EXTLIBS=$(foreach lib,$(EXTLIBS_),-l$(lib))
+
+#holds *.h files
+IDIR=$(CPPBASE)com/inc/ $(CPPBASE)ser/inc/
+INC=$(foreach d,$(IDIR),-I$(d))
+
+# holds *.cpp files for *.h files
+LIBDIR_COM=$(CPPBASE)com/lib/
+LIBSRC_COM_=common_utils.cpp string_utils.cpp pc_utils.cpp test_utils.cpp
+LIBSRC_COM=$(foreach src,$(LIBSRC_COM_),$(LIBDIR_COM)$(src))
+
+LIBDIR_SER=$(CPPBASE)ser/lib/
+LIBSRC_SER_=SerialSender.cpp 
+LIBSRC_SER=$(foreach src,$(LIBSRC_SER_),$(LIBDIR_SER)$(src))
+
+LIBSRC=$(LIBSRC_COM) $(LIBSRC_SER)
+
+SRCDIR=$(CPPBASE)ser/src/
+SRC=main.cpp
+
+OUTDIR=$(CPPBASE)ser/bin/
+TARGET=serialSenderMain
+
+LSRC_SER2=CatheterSerialSender.cpp posix_serial_utils.cpp
+LIBSRC2=$(LIBSRC_COM) $(LIBSRC_SER2)
+SRC2=test_serial_main.cpp
+TARGET2=test_serial_main
+
+all:
+	$(CC) $(CFLAGS) $(INC) -o $(OUTDIR)$(TARGET) $(SRCDIR)$(SRC) $(LIBSRC) $(EXTLIBS)
+#	$(CC) $(CFLAGS) $(INC) -o $(OUTDIR)$(TARGET2) $(SRCDIR)$(SRC2) $(LIBSRC2) $(EXTLIBS)
+
+.PHONY: clean
+clean:
+	rm -f $(TARGET) $(TARGET2) *.o *~

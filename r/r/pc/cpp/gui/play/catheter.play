@@ -1,0 +1,13 @@
+#channel in {0..NCHANNELS}, data (0-DAC_RES), direction in {0,1}, wait (ms)
+
+#1, 0, 0, 10000
+# 0 addr is global
+# 0 means negative direction, just like the bit in command val
+# <0 means no change in direction
+
+1, 3000, 0, 2000
+1, 3000, 1, 2000
+1, 3000, 0, 2000
+1, 1000, 1, 2000
+1, 1000, 0, 2000
+1, 1000, 1, 2000

@@ -1,0 +1,22 @@
+function [npackets, packets, delays, pckLens, channelCurrents] = m_get_reset_packet(maxPackets, packetIndex)
+    NCHANNELS=6;
+    CMDLEN=3;
+    PRELEN=1;
+    POSTLEN=1;
+    CHKLEN=1;
+    maxPckLen = CMDLEN*NCHANNELS + PRELEN + POSTLEN + CHKLEN;
+    
+    npackets = 1;
+    packets = zeros(maxPckLen, maxPackets);
+    delays = zeros(1,maxPackets);
+    pckLens = zeros(1,maxPackets);    
+    channelCurrents = zeros(1,maxPackets);
+    
+    w = [1000];
+    l = PRELEN + CMDLEN + POSTLEN + CHKLEN];
+    
+    delays(1:npackets) = w;
+    pckLens(1:npackets) = l;
+    packets(1:pckLens(1,i), i) = p(1:pckLens(1,i),i);
+    
+end

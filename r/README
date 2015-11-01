@@ -1,0 +1,6 @@
+current configuration:
+1. gui
+    -have tested physical cards using r/cleanup/packetGen_v4.1 (ie. the matlab gui)
+        -this directory is in cleanup since it needs to be resolved with the r/r/pc/matlab/gui/
+2. card
+    -see r/card/README

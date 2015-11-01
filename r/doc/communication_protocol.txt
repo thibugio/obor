@@ -1,0 +1,46 @@
+COMMUNICATION PROTOCOL
+
+    1. Serial Packet Specification
+        
+        BIT(S)      Function
+
+        1           Good/Bad    (from ucontroller; always '1' from PC)                       
+        2-4         Cmd Index   (the specific command number; supports sending multiple cmds one after another)
+        5-8         Cmd Count   (how many commands are in the packet)                        
+                                                                                             
+        (the following 24 bits are repeated N (cmd_count) times)                             
+        ------------------------                                                             
+        9-12       Address     (which channel this command is addressed to)                 
+        13-16       Cmd        (Poll, Enable, Update, Direction)                            
+        17-28       Data       (12-bit data for the DAC; ignored depending on command)      
+        29-32       Reserved   (4-bit checksum for individual command)                       
+        ------------------------                                                            
+        33-35       Cmd Index   (same as above, bits 2-4)                                    
+        36-40       Reserved                                                                  
+        41-48       Checksum    (Fletcher 8-bit checksum for entire packet)                  
+
+    2. Supported Commands
+
+        Command     Function
+
+        0000        Channel disabled 
+        0001        Channel disabled, H-Bridge Dir 1 stored 
+        0010        Channel disabled, DAC pwm and H-Bridge Direction set 
+        0011        Channel disabled, H-Bridge Dir 1 stored, DAC pwm and H-Bridge Dir set 
+        0100        Channel enabled 
+        0101        Channel enabled,  H-Bridge Dir 1 stored  
+        0110        Channel enabled,  DAC pwm and H-Bridge Direction set 
+        0111        Channel enabled,  H-Bridge Dir 1 stored, DAC pwm and H-Bridge Dir set 
+        10XX        Poll ADC
+        10XX        "        
+        10XX        " 
+        10XX        " 
+        11XX        Poll DAC
+        11XX        "
+        11XX        "
+        11XX        "  
+
+    3. Channels
+        
+        Channel 0                                       reserved for GLOBAL commands
+        Channels 1-15 (3, 6, 9, 12, or 15 channels)     individual CARD commands

@@ -1,0 +1,15 @@
+NOTES ON CROSS-COMPILING FOR AVR MICROCONTROLLERS
+
+I. Arduino
+    
+    - if developing specifically for Arduino, Arduino sketches can be compiled from the command
+      line using arduino-mk. (make; make upload; make monitor)
+
+II. AtmegaXXXX 
+
+    - C/C++ programs can be compiled for atmega chips (e.g., Arduino) using AVR-base-makefile.mk
+    - AVR-libc provides libraries and functions for IO, etc
+    - ARDUINO: can include <Arduino.h> and call init(); in main() to use built-in arduino 
+      libraries. If using additional arduino libraries (e.g., SPI), will need to use CPP, 
+      not C, since these libraries rely heavily on classes.
+        -note: currently having issues getting hardware serial library to compile

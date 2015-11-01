@@ -1,0 +1,134 @@
+>> matlab_serial
+attempting to open port...
+port successfully opened.
+command 0:
+channel: 0
+poll: 1
+enable: 0
+update: 0
+dir: 1
+data: 0
+EOP. delay: 100ms
+command 1:
+channel: 1
+poll: 0
+enable: 1
+update: 1
+dir: 1
+data: 2000
+command 2:
+channel: 3
+poll: 0
+enable: 1
+update: 1
+dir: 1
+data: 2000
+EOP. delay: 200ms
+command 3:
+channel: 1
+poll: 0
+enable: 1
+update: 1
+dir: 0
+data: 1000
+command 4:
+channel: 2
+poll: 0
+enable: 1
+update: 1
+dir: 1
+data: 1000
+command 5:
+channel: 3
+poll: 0
+enable: 1
+update: 1
+dir: 0
+data: 1000
+EOP. delay: 300ms
+command 6:
+channel: 1
+poll: 0
+enable: 0
+update: 1
+dir: 1
+data: 0
+command 7:
+channel: 2
+poll: 0
+enable: 0
+update: 1
+dir: 0
+data: 0
+command 8:
+channel: 3
+poll: 0
+enable: 0
+update: 1
+dir: 1
+data: 0
+command 9:
+channel: 4
+poll: 0
+enable: 1
+update: 1
+dir: 0
+data: 500
+command 10:
+channel: 5
+poll: 0
+enable: 1
+update: 1
+dir: 1
+data: 500
+command 11:
+channel: 6
+poll: 0
+enable: 1
+update: 1
+dir: 1
+data: 500
+EOP. delay: 10000ms
+command 12:
+channel: 0
+poll: 1
+enable: 0
+update: 0
+dir: 1
+data: 0
+EOP. delay: 10000ms
+packet 1:
+145 9 0 0 33 39 
+packet 2:
+162 23 125 0 55 125 0 65 96 
+packet 3:
+179 22 62 128 39 62 128 54 62 128 97 113 
+packet 4:
+198 19 0 0 34 0 0 51 0 0 70 31 64 87 31 64 103 31 64 129 193 
+packet 5:
+209 9 0 0 161 212 
+
+waiting for port, paused 100ms
+received 4 bytes for packet index 1:
+16 255 255 16 
+transmission successful
+
+waiting for port, paused 100ms
+received 6 bytes for packet index 2:
+32 0 0 0 0 32 
+transmission successful
+
+waiting for port, paused 100ms
+received 8 bytes for packet index 3:
+48 0 0 0 0 0 0 48 
+transmission successful
+
+waiting for port, paused 100ms
+received 14 bytes for packet index 4:
+64 0 0 0 0 0 0 0 0 0 0 0 0 64 
+transmission successful
+
+waiting for port, paused 100ms
+received 4 bytes for packet index 5:
+80 255 255 80 
+transmission successful

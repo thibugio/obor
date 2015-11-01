@@ -1,0 +1,5 @@
+1. parser does not make sure that there are <= NCHANNEL commands in a single packet.
+2. gui does not support creating multiple packets in the command-builder window.
+3. gui does not support logging.
+4. gui should be implemented with wxWidgets, not ~matlab~
+5. should consider CRC instead of fletcher -> catch more burst errors, also error-correction capability

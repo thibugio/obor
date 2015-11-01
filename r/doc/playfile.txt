@@ -1,0 +1,18 @@
+PLAYFILE SYNTAX:
+
+channel, data, direction, delay
+#comment
+
+    channel: 0 through NCHANNELS; 
+        0 is reserved for GLOBAL commands
+
+    data: the desired (0-4095) DAC digital resolution value.
+
+    direction: 0 is negative 
+               1 is positive
+               <0 indicates no change in direction (i.e., the parser disregards it)
+
+    delay: the time in ms to wait before transmitting the next packet.
+        packet breaks are determined by a non-zero delay. I.e., all commands with 0-delay
+        after them will be gathered into the same packet.
+
